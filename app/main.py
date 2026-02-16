@@ -18,9 +18,11 @@ from app.services.match_engine import (
 from app.services.resume_parser import extract_text_from_pdf, extract_skills
 from app.models import User, Application, Job
 
-models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+@app.on_event("startup")
+def startup_event():
+    models.Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
