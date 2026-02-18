@@ -1,11 +1,12 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from sentence_transformers import SentenceTransformer
 import numpy as np
 import json
 import numpy as np
 import json
 from sklearn.metrics.pairwise import cosine_similarity
+from sentence_transformers import SentenceTransformer
+
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def calculate_match_score(resume, job):
